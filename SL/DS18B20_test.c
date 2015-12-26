@@ -293,7 +293,10 @@ int main(void)
 					printf("%02x",sp[i]);
 				}
 				printf("\n");
-				printf("temperature: 0x%02x%02x\n",sp[0],sp[1]);
+				printf("temperature: %2u.%3u C\n"
+					,(uint16_t)((sp[1])<<8 | sp[0])>>4
+					,(uint16_t)( 0x271 * (sp[0] & 0x0f) )
+					);
 				printf("Th: 0x%02x\n",sp[2]);
 				printf("Tl: 0x%02x\n",sp[3]);
 				printf("config : ");
@@ -303,7 +306,7 @@ int main(void)
 				}
 				printf("\n");
 				printf("ERC: 0x%02x\n",sp[8]);
-				printf("temperature 0x%04x = %6.3f C\n",(((0x7&sp[1])<<8)+sp[0]),(((0x7&sp[1])<<8)+sp[0])*0.0625);
+				// printf("temperature 0x%04x = %6.3f C\n",(((0x7&sp[1])<<8)+sp[0]),(((0x7&sp[1])<<8)+sp[0])*0.0625);
 /*				break;
 				uint8_t temp_lower = read_data(t_sensor);
 				uint8_t temp_higher = read_data(t_sensor);
