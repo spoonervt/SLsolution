@@ -15,16 +15,9 @@
 #define sbi(var, mask)   ((var) |= (uint8_t)(1 << mask))
 #define cbi(var, mask)   ((var) &= (uint8_t)~(1 << mask))
 
-typedef struct {
-	volatile uint8_t *port;
-	volatile uint8_t *pin;
-	volatile uint8_t *ddr;
-	uint8_t mask;
-} avr_port;
 
-
-void write_sensor( uint8_t data, avr_port sensor);
-int read_sensor( avr_port sensor);
+void write_sensor( uint8_t data,  avrPort * owChannel);
+int read_sensor(  avrPort * owChannel);
 
 
 #endif /* SENSORIO_H_ */

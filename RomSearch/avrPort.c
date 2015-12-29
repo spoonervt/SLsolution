@@ -1,21 +1,15 @@
-#ifndef AVR_PORT
-#define AVR_PORT
 /*
  * avrPort.c
  *
- * Created: 12/20/2015 9:19:09 PM
+ * Created: 12/27/2015 4:14:42 AM
  *  Author: steffen
  */ 
 
 #include <avr/io.h>
 
-typedef struct {
+/* struct _avrPort {
 	volatile uint8_t *port;
 	volatile uint8_t *pin;
 	volatile uint8_t *ddr;
 	uint8_t mask;
-} avrPort;
-
-
-
-#endif
+};*/

@@ -13,6 +13,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include "sensorIO.h"
+#include "avrPort.h"
 
 // Idle state of the bus is HIGH
 
@@ -50,20 +51,20 @@
    Initialize the sensor port 
    @return nothing
  */
-extern void sensor_port_init(avr_port sensor);
+extern void sensor_port_init(avrPort * sensor);
 
 /**
    Initialize the sensor
    @return validation status
  */
-extern uint8_t sensor_init(avr_port sensor);
+extern uint8_t sensor_init( avrPort * sensor);
 
 /**
    Transmit 1 bit of data to the sensor
    @param[data] data to be sent
    @return nothing
  */
-extern void transmit_bit(uint8_t bit,avr_port sensor);
+extern void transmit_bit(uint8_t bit,  avrPort * sensor);
 
 /**
    Transmit data to the sensor
@@ -71,12 +72,12 @@ extern void transmit_bit(uint8_t bit,avr_port sensor);
    @return nothing
    calls transmit 8 times
  */
-extern void transmit_data(uint8_t data,avr_port sensor);
+extern void transmit_data(uint8_t data,  avrPort * sensor);
 
 /**
    Read data from the sensor
    @return data which was read
  */
-extern uint8_t read_data(avr_port sensor);
+extern uint8_t read_data( avrPort * sensor);
 
 #endif /* DS18S20_H_ */
