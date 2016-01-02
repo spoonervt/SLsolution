@@ -39,7 +39,6 @@ SUBDIRS :=
 C_SRCS +=  \
 ../owCommands.c \
 ../RomSearch.c \
-../sbicbi.c \
 ../serialCommunication.c
 
 
@@ -52,25 +51,21 @@ ASM_SRCS +=
 OBJS +=  \
 owCommands.o \
 RomSearch.o \
-sbicbi.o \
 serialCommunication.o
 
 OBJS_AS_ARGS +=  \
 owCommands.o \
 RomSearch.o \
-sbicbi.o \
 serialCommunication.o
 
 C_DEPS +=  \
 owCommands.d \
 RomSearch.d \
-sbicbi.d \
 serialCommunication.d
 
 C_DEPS_AS_ARGS +=  \
 owCommands.d \
 RomSearch.d \
-sbicbi.d \
 serialCommunication.d
 
 OUTPUT_FILE_PATH +=RomSearch.elf
@@ -94,12 +89,10 @@ LINKER_SCRIPT_DEP+=
 
 
 
-
-
 ./%.o: .././%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.9.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.90\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.90\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.90\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.90\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 

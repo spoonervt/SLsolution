@@ -6,7 +6,5 @@ owCommands.c
 
 RomSearch.c
 
-sbicbi.c
-
 serialCommunication.c
 
